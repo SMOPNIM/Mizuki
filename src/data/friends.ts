@@ -105,8 +105,7 @@ export const friendsData: FriendItem[] = [
   {
     id: 4,
     title: "BilibIli",
-    imgurl:
-      "https://i0.hdslb.com/bfs/archive/87a5d03581e326f4f818cab3212ce471d1f6a064.png",
+    imgurl: "https://www.bilibili.com/favicon.ico",
     desc: "国内知名视频弹幕网站。",
     siteurl: "https://bilibili.com",
     tags: ["Video", "Live"],
