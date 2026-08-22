@@ -167,10 +167,17 @@ export const siteConfig: SiteConfig = {
         "头抬起，请坐和放宽。",
         "海内存知己，天涯若比邻。",
         "做 轰！嚓-嚓-嚓 推-推 的事",
+        "您可能是正版受害者。",
+        "让我们重回正轨。",
+        "请勿™关闭计算机",
+        "将微软边缘停靠在您的码头上",
         "你今天看起来很聪明！",
         "您正在成功！",
+        "The quick brown fox jumps over the lazy dog",
         "开发者的大事，大快所有人心的大好事！",
-        "开了又开!",
+        "让妈妈开心的礼物，开了又开。",
+        "We are heading east.", //By @ClaraHerta-Offical
+        "比更大还更大", //By @ClaraHerta-Offical
       ],
       typewriter: {
         enable: true, // 启用副标题打字机效果
