@@ -126,11 +126,34 @@ export const siteConfig: SiteConfig = {
         "/images/desktop-banner/1.jpeg",
         "/images/desktop-banner/2.jpeg",
         "/images/desktop-banner/3.jpeg",
+        "/images/desktop-banner/4.png",
+        "/images/desktop-banner/5.png",
+        "/images/desktop-banner/6.png",
+        // "/images/desktop-banner/7.png",
+        "/images/desktop-banner/8.png",
+        "/images/desktop-banner/9.png",
+        "/images/desktop-banner/10.png",
+        "/images/desktop-banner/11.png",
+        "/images/desktop-banner/12.png",
+        "/images/desktop-banner/13.png",
+        "/images/desktop-banner/14.png",
+        "/images/desktop-banner/15.png",
       ], // 桌面横幅图片
       mobile: [
         "/images/mobile-banner/1.jpeg",
         "/images/mobile-banner/2.jpeg",
         "/images/mobile-banner/3.jpeg",
+        "/images/mobile-banner/4.png",
+        "/images/mobile-banner/5.png",
+        "/images/mobile-banner/6.png",
+        // "/images/mobile-banner/7.png",
+        "/images/mobile-banner/8.png",
+        "/images/mobile-banner/9.png",
+        "/images/mobile-banner/10.png",
+        "/images/mobile-banner/11.png",
+        "/images/mobile-banner/12.png",
+        "/images/mobile-banner/13.png",
+        "/images/mobile-banner/14.png",
       ], // 移动横幅图片
     }, // 使用本地横幅图片
 
@@ -164,6 +187,7 @@ export const siteConfig: SiteConfig = {
       switchable: true,
 
       subtitle: [
+        // ↓微软式中文
         "头抬起，请坐和放宽。",
         "海内存知己，天涯若比邻。",
         "做 轰！嚓-嚓-嚓 推-推 的事",
@@ -173,11 +197,26 @@ export const siteConfig: SiteConfig = {
         "将微软边缘停靠在您的码头上",
         "你今天看起来很聪明！",
         "您正在成功！",
+        "用微软边缘粉碎你的工作日！",
+        // ↓经典测试语句
         "The quick brown fox jumps over the lazy dog",
+        // ↓苹果式中文
         "开发者的大事，大快所有人心的大好事！",
         "让妈妈开心的礼物，开了又开。",
-        "We are heading east.", //By @ClaraHerta-Offical
         "比更大还更大", //By @ClaraHerta-Offical
+        "你的下一台电脑，何必是电脑。",
+        "iPhone 12 —— 专治水逆。",
+        "别看轻，别轻看。",
+        "真的笑，笑出声。",
+        "全新iPhone现已问世，全新iPhone也已问世。",
+        "听君一席话，如听一席话。", //评价
+        // ↓其他
+        "We are heading east.", //By @ClaraHerta-Offical
+        // ↓太过沉重了，弃用。
+        // "Vanitas Vanitatum Et Omnia Vanitas",
+        // "通过无法理解的事物，能否得到理解？",
+        // "能证明到达乐园的人的真实吗？",
+        // "非有之真实是否为真实？",
       ],
       typewriter: {
         enable: true, // 启用副标题打字机效果
