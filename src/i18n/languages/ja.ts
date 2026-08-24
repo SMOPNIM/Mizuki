@@ -233,6 +233,8 @@ export const ja: Translation = {
 	[Key.bannerTitle]: "バナータイトル",
 	[Key.bannerCarousel]: "バナーカルーセル",
 	[Key.sakuraEffect]: "桜エフェクト",
+	[Key.clickEffect]: "ブルアカ クリック演出",
+	[Key.clickEffectColor]: "エフェクトカラー",
 	[Key.effectsSettings]: "エフェクト",
 	[Key.postListLayout]: "投稿レイアウト",
 	[Key.postListLayoutList]: "リスト",

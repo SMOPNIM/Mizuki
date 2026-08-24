@@ -203,7 +203,7 @@ export const siteConfig: SiteConfig = {
 - `src/config/navBarConfig.ts` — ナビゲーションとメニュー。
 - `src/config/profileConfig.ts` — アバター、名前、プロフィール、ソーシャルリンク。
 - `src/config/sidebarConfig.ts` — サイドバーのウィジェット、順序、位置、レスポンシブ動作。
-- `src/config/backgroundWallpaper.ts` と `src/config/effectsConfig.ts` — 壁紙と視覚効果。
+- `src/config/backgroundWallpaper.ts` と `src/config/effectsConfig.ts` — 壁紙と視覚効果（桜、ブルアカ風クリック演出）。
 - `src/config/commentConfig.ts` — Twikoo または Giscus のグローバル設定。コメントはデフォルトで無効です。使用前に `enable: true` とプロバイダー設定を追加してください。
 - `src/config/musicConfig.ts` — 音楽プレーヤーのモードとプレイリスト。
 - `src/config/markdownConfig.ts` — Wiki Link、自動画像グリッド、PlantUML。

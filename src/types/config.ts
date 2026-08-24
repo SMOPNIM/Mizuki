@@ -459,6 +459,17 @@ export interface SakuraConfig {
 	zIndex: number; // 层级，确保樱花在合适的层级显示
 }
 
+export interface BAClickFxConfig {
+	enable: boolean; // 是否启用蔚蓝档案风格点击特效与光标拖尾
+	switchable?: boolean; // 是否允许访客在设置面板中切换
+	themeColor: string; // 特效主题色（六位十六进制），默认游戏蓝 #4ca7ff
+	scale: number; // 相对 Unity 原始尺寸的倍率
+	opacity: number; // 整体不透明度 0~1
+	clickEnabled: boolean; // 是否启用点击特效
+	trailEnabled: boolean; // 是否启用光标拖尾
+	trailAlways: boolean; // 移动鼠标即显示拖尾（无需按下）
+}
+
 export interface FullscreenWallpaperConfig {
 	enable?: boolean;
 	src:

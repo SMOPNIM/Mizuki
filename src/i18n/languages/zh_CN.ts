@@ -321,6 +321,8 @@ export const zh_CN: Translation = {
 	[Key.bannerTitle]: "横幅标题",
 	[Key.bannerCarousel]: "横幅轮播",
 	[Key.sakuraEffect]: "樱花特效",
+	[Key.clickEffect]: "蔚蓝档案点击特效",
+	[Key.clickEffectColor]: "特效颜色",
 	[Key.effectsSettings]: "特效",
 	[Key.postListLayout]: "文章布局",
 	[Key.postListLayoutList]: "列表",

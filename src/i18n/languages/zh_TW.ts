@@ -323,6 +323,8 @@ export const zh_TW: Translation = {
 	[Key.bannerTitle]: "橫幅標題",
 	[Key.bannerCarousel]: "橫幅輪播",
 	[Key.sakuraEffect]: "櫻花特效",
+	[Key.clickEffect]: "蔚藍檔案點擊特效",
+	[Key.clickEffectColor]: "特效顏色",
 	[Key.effectsSettings]: "特效",
 	[Key.postListLayout]: "文章佈局",
 	[Key.postListLayoutList]: "列表",

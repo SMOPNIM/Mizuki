@@ -8,6 +8,7 @@ import { initLinkPreloading } from "../utils/navigation-utils";
 import { SWUP_SELECTORS } from "./core/swup-config";
 import { SwupHooksManager } from "./core/swup-hooks";
 import { setupSakuraOnDOMReady } from "./effects/sakura-effect";
+import { setupBAClickFxOnDOMReady } from "./effects/ba-click-fx-effect";
 import {
 	destroyTransitionEffect,
 	getTransitionEffect,
@@ -66,6 +67,9 @@ export class SwupManager {
 
 		// 设置 Sakura 特效
 		this.setupSakura();
+
+		// 设置 BA Click FX 点击特效
+		setupBAClickFxOnDOMReady(widgetConfigs);
 
 		// 初始化 Swup 钩子
 		this.initSwupHooks();
