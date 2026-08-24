@@ -203,7 +203,7 @@ export const siteConfig: SiteConfig = {
 - `src/config/navBarConfig.ts` — 導航連結和選單。
 - `src/config/profileConfig.ts` — 頭像、名稱、簡介和社交連結。
 - `src/config/sidebarConfig.ts` — 側邊欄元件、順序、位置和響應式行為。
-- `src/config/backgroundWallpaper.ts` 與 `src/config/effectsConfig.ts` — 桌布和視覺特效。
+- `src/config/backgroundWallpaper.ts` 與 `src/config/effectsConfig.ts` — 桌布和視覺特效（櫻花飄落、蔚藍檔案點擊特效）。
 - `src/config/commentConfig.ts` — Twikoo 或 Giscus 全域設定。評論預設關閉；使用前請設定 `enable: true` 並配置對應服務。
 - `src/config/musicConfig.ts` — 音樂播放器模式和歌單來源。
 - `src/config/markdownConfig.ts` — Wiki Link、自動圖片網格和 PlantUML。

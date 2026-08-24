@@ -1,4 +1,4 @@
-import type { SakuraConfig } from "../types/config";
+import type { BAClickFxConfig, SakuraConfig } from "../types/config";
 
 export const sakuraConfig: SakuraConfig = {
 	enable: false,
@@ -26,4 +26,16 @@ export const sakuraConfig: SakuraConfig = {
 		fadeSpeed: 0.03, // 消失速度，不应大于最小不透明度
 	},
 	zIndex: 100, // 层级，确保樱花在合适的层级显示
+};
+
+// 蔚蓝档案风格点击特效与光标拖尾（ba-click-fx）
+export const baClickFxConfig: BAClickFxConfig = {
+	enable: true,
+	switchable: true,
+	themeColor: "#4ca7ff", // 默认游戏蓝
+	scale: 1, // 相对游戏原始尺寸的倍率
+	opacity: 1,
+	clickEnabled: true,
+	trailEnabled: true,
+	trailAlways: false,
 };

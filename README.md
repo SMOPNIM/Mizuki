@@ -208,7 +208,7 @@ Other commonly used configuration files include:
 - `src/config/navBarConfig.ts` — navigation links and menus.
 - `src/config/profileConfig.ts` — avatar, name, bio, and social links.
 - `src/config/sidebarConfig.ts` — sidebar widgets, order, positions, and responsive behavior.
-- `src/config/backgroundWallpaper.ts` and `src/config/effectsConfig.ts` — wallpaper and visual effects.
+- `src/config/backgroundWallpaper.ts` and `src/config/effectsConfig.ts` — wallpaper and visual effects (sakura, BA-style click FX).
 - `src/config/commentConfig.ts` — global Twikoo or Giscus settings. Comments are disabled by default; set `enable: true` and configure the selected provider before using them.
 - `src/config/musicConfig.ts` — music player mode and playlist source.
 - `src/config/markdownConfig.ts` — Wiki Links, automatic image grids, and PlantUML.

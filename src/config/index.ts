@@ -22,6 +22,7 @@
  * footerConfig                  │ footerConfig.ts            │ 页脚自定义 HTML
  * sidebarLayoutConfig           │ sidebarConfig.ts           │ 侧边栏组件布局（排序、动画、响应式断点）
  * sakuraConfig                  │ effectsConfig.ts           │ 樱花飘落特效（数量、速度、透明度）
+ * baClickFxConfig               │ effectsConfig.ts           │ 蔚蓝档案点击特效与光标拖尾（主题色、缩放、开关）
  * pioConfig                     │ pioConfig.ts               │ Live2D 看板娘（模型、对话、位置）
  * relatedPostsConfig            │ relatedPostsConfig.ts      │ 相关文章推荐（开关、数量）
  * randomPostsConfig             │ randomPostsConfig.ts       │ 随机文章推荐（开关、数量）
@@ -66,7 +67,10 @@
 import { announcementConfig as announcementDefaults } from "./announcementConfig";
 import { fullscreenWallpaperConfig as fullscreenWallpaperDefaults } from "./backgroundWallpaper";
 import { commentConfig as commentDefaults } from "./commentConfig";
-import { sakuraConfig as sakuraDefaults } from "./effectsConfig";
+import {
+	baClickFxConfig as baClickFxDefaults,
+	sakuraConfig as sakuraDefaults,
+} from "./effectsConfig";
 import { expressiveCodeConfig as expressiveCodeDefaults } from "./expressiveCodeConfig";
 import { footerConfig as footerDefaults } from "./footerConfig";
 import { licenseConfig as licenseDefaults } from "./licenseConfig";
@@ -99,6 +103,10 @@ export const fullscreenWallpaperConfig = withOverride(
 
 // ─── 互动功能 ───────────────────────────────────────────────
 export const commentConfig = withOverride("commentConfig", commentDefaults);
+export const baClickFxConfig = withOverride(
+	"baClickFxConfig",
+	baClickFxDefaults,
+);
 export const sakuraConfig = withOverride("sakuraConfig", sakuraDefaults);
 
 // ─── 代码块 ─────────────────────────────────────────────────
@@ -158,6 +166,7 @@ export const widgetConfigs = {
 	announcement: announcementConfig,
 	music: musicPlayerConfig,
 	layout: sidebarLayoutConfig,
+	baClickFx: baClickFxConfig,
 	sakura: sakuraConfig,
 	fullscreenWallpaper: fullscreenWallpaperConfig,
 	pio: pioConfig,

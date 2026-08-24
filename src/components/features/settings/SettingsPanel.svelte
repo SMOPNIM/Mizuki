@@ -9,6 +9,8 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import Icon from "@iconify/svelte";
 import {
+	getDefaultBaClickFxColor,
+	getDefaultBaClickFxEnabled,
 	getDefaultBannerTitleEnabled,
 	getDefaultHue,
 	getDefaultOverlayBlur,
@@ -18,6 +20,8 @@ import {
 	getDefaultUltrawidePostLayout,
 	getDefaultWavesEnabled,
 	getHue,
+	getStoredBaClickFxColor,
+	getStoredBaClickFxEnabled,
 	getStoredBannerTitleEnabled,
 	getStoredOverlayBlur,
 	getStoredOverlayCardOpacity,
@@ -26,6 +30,10 @@ import {
 	getStoredUltrawidePostLayout,
 	getStoredWallpaperMode,
 	getStoredWavesEnabled,
+	hexToHue,
+	hslToHex,
+	setBaClickFxColor,
+	setBaClickFxEnabled,
 	setBannerTitleEnabled,
 	setHue,
 	setOverlayBlur,
@@ -37,7 +45,12 @@ import {
 	setWavesEnabled,
 } from "@utils/setting-utils";
 import { onMount } from "svelte";
-import { fullscreenWallpaperConfig, sakuraConfig, siteConfig } from "@/config";
+import {
+	baClickFxConfig,
+	fullscreenWallpaperConfig,
+	sakuraConfig,
+	siteConfig,
+} from "@/config";
 
 import type { WALLPAPER_MODE } from "@/types/config";
 
@@ -83,6 +96,9 @@ const hasBannerSettings = isWavesSwitchable || isBannerTitleSwitchable;
 const isSakuraSwitchable =
 	sakuraConfig.enable && (sakuraConfig.switchable ?? false);
 
+const isBaClickFxSwitchable =
+	baClickFxConfig.enable && (baClickFxConfig.switchable ?? false);
+
 const isUltrawidePostLayoutSwitchable =
 	siteConfig.ultrawidePostLayout?.allowSwitch ?? true;
 
@@ -104,6 +120,7 @@ const hasAnyContent = $derived(
 		hasOverlaySettings ||
 		hasBannerSettings ||
 		isSakuraSwitchable ||
+		isBaClickFxSwitchable ||
 		isUltrawidePostLayoutSwitchable,
 );
 
@@ -123,6 +140,11 @@ let bannerTitleEnabled = $state(getDefaultBannerTitleEnabled());
 const defaultBannerTitleEnabled = getDefaultBannerTitleEnabled();
 let sakuraEnabled = $state(getDefaultSakuraEnabled());
 const defaultSakuraEnabled = getDefaultSakuraEnabled();
+let baClickFxEnabled = $state(getDefaultBaClickFxEnabled());
+const defaultBaClickFxColor = getDefaultBaClickFxColor();
+const initialBaClickFxColor = getStoredBaClickFxColor();
+let clickFxColor = $state(initialBaClickFxColor);
+let clickFxHue = $state(hexToHue(initialBaClickFxColor));
 let ultrawidePostLayout = $state(getDefaultUltrawidePostLayout());
 
 let overlaySettingsIsDefault = $derived(
@@ -206,6 +228,23 @@ function toggleSakuraEnabled() {
 	setSakuraEnabled(sakuraEnabled);
 }
 
+function toggleBaClickFxEnabled() {
+	baClickFxEnabled = !baClickFxEnabled;
+	setBaClickFxEnabled(baClickFxEnabled);
+}
+
+function applyClickFxColor(hue: number) {
+	clickFxHue = hue;
+	clickFxColor = hslToHex(hue);
+	setBaClickFxColor(clickFxColor);
+}
+
+function resetClickFxColor() {
+	clickFxColor = defaultBaClickFxColor;
+	clickFxHue = hexToHue(defaultBaClickFxColor);
+	setBaClickFxColor(clickFxColor);
+}
+
 function toggleUltrawidePostLayout() {
 	ultrawidePostLayout = !ultrawidePostLayout;
 	setUltrawidePostLayout(ultrawidePostLayout);
@@ -261,6 +300,9 @@ onMount(() => {
 	wavesEnabled = getStoredWavesEnabled();
 	bannerTitleEnabled = getStoredBannerTitleEnabled();
 	sakuraEnabled = getStoredSakuraEnabled();
+	baClickFxEnabled = getStoredBaClickFxEnabled();
+	clickFxColor = getStoredBaClickFxColor();
+	clickFxHue = hexToHue(clickFxColor);
 	ultrawidePostLayout = getStoredUltrawidePostLayout();
 
 	const savedLayout = siteConfig.postListLayout?.enable
@@ -436,7 +478,7 @@ $effect(() => {
 		</div>
 	{/if}
 
-	{#if isSakuraSwitchable}
+	{#if isSakuraSwitchable || isBaClickFxSwitchable}
 		<div class="mt-2 mb-2">
 			<div
 				class="flex gap-2 font-bold text-lg text-neutral-900 dark:text-neutral-100 transition relative ml-3 mb-2
@@ -446,6 +488,7 @@ $effect(() => {
 				{i18n(I18nKey.effectsSettings)}
 			</div>
 			<div class="space-y-1">
+				{#if isSakuraSwitchable}
 				<button
 					class="w-full btn-regular rounded-md py-2 px-3 flex items-center gap-3 text-left active:scale-95 transition-all relative overflow-hidden"
 					class:bg-(--btn-regular-bg-hover)={sakuraEnabled}
@@ -461,6 +504,56 @@ $effect(() => {
 							class:left-5={sakuraEnabled}></div>
 					</div>
 				</button>
+				{/if}
+				{#if isBaClickFxSwitchable}
+				<button
+					class="w-full btn-regular rounded-md py-2 px-3 flex items-center gap-3 text-left active:scale-95 transition-all relative overflow-hidden"
+					class:bg-(--btn-regular-bg-hover)={baClickFxEnabled}
+					onclick={toggleBaClickFxEnabled}
+				>
+					<Icon icon="material-symbols:touch-app-rounded" class="text-[1.25rem] shrink-0" />
+					<span class="text-sm flex-1">{i18n(I18nKey.clickEffect)}</span>
+					<div class="w-10 h-5 rounded-full transition-all duration-200 relative"
+						class:bg-(--primary)={baClickFxEnabled}
+						class:bg-(--btn-regular-bg-active)={!baClickFxEnabled}>
+						<div class="absolute top-0.5 w-4 h-4 bg-white rounded-full shadow transition-all duration-200"
+							class:left-0.5={!baClickFxEnabled}
+							class:left-5={baClickFxEnabled}></div>
+					</div>
+				</button>
+				{#if baClickFxEnabled}
+				<div class="rounded-md bg-(--btn-regular-bg) p-2">
+					<div class="flex items-center justify-between mb-1">
+						<span class="text-sm font-medium text-(--btn-content) opacity-80">{i18n(I18nKey.clickEffectColor)}</span>
+						<div class="flex items-center gap-2">
+							<span class="text-xs text-(--btn-content) uppercase">{clickFxColor}</span>
+							<button
+								aria-label="Reset to Default"
+								class="btn-regular w-6 h-6 rounded-md active:scale-90"
+								class:opacity-0={clickFxColor === defaultBaClickFxColor}
+								class:pointer-events-none={clickFxColor === defaultBaClickFxColor}
+								onclick={resetClickFxColor}
+							>
+								<div class="text-(--btn-content)">
+									<Icon icon="material-symbols:refresh" class="text-[0.8rem]" />
+								</div>
+							</button>
+						</div>
+					</div>
+					<input
+						aria-label={i18n(I18nKey.clickEffectColor)}
+						type="range"
+						min="0"
+						max="360"
+						step="5"
+						value={clickFxHue}
+						oninput={(e) => applyClickFxColor(Number((e.currentTarget as HTMLInputElement).value))}
+						class="slider w-full"
+						id="clickFxColorSlider"
+					/>
+				</div>
+				{/if}
+				{/if}
 			</div>
 		</div>
 	{/if}
@@ -721,13 +814,15 @@ $effect(() => {
 		box-shadow: none;
 	}
 
-	#display-setting #colorSlider {
+	#display-setting #colorSlider,
+	#display-setting #clickFxColorSlider {
 		border-radius: 0;
 		background-image: var(--color-selection-bar);
 		transition: background-image 0.15s ease-in-out;
 	}
 
-	#display-setting #colorSlider::-webkit-slider-thumb {
+	#display-setting #colorSlider::-webkit-slider-thumb,
+	#display-setting #clickFxColorSlider::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		height: 1rem;
 		width: 0.5rem;
@@ -736,15 +831,18 @@ $effect(() => {
 		box-shadow: none;
 	}
 
-	#display-setting #colorSlider::-webkit-slider-thumb:hover {
+	#display-setting #colorSlider::-webkit-slider-thumb:hover,
+	#display-setting #clickFxColorSlider::-webkit-slider-thumb:hover {
 		background: rgba(255, 255, 255, 0.8);
 	}
 
-	#display-setting #colorSlider::-webkit-slider-thumb:active {
+	#display-setting #colorSlider::-webkit-slider-thumb:active,
+	#display-setting #clickFxColorSlider::-webkit-slider-thumb:active {
 		background: rgba(255, 255, 255, 0.6);
 	}
 
-	#display-setting #colorSlider::-moz-range-thumb {
+	#display-setting #colorSlider::-moz-range-thumb,
+	#display-setting #clickFxColorSlider::-moz-range-thumb {
 		height: 1rem;
 		width: 0.5rem;
 		border-radius: 0.125rem;
@@ -753,11 +851,13 @@ $effect(() => {
 		box-shadow: none;
 	}
 
-	#display-setting #colorSlider::-moz-range-thumb:hover {
+	#display-setting #colorSlider::-moz-range-thumb:hover,
+	#display-setting #clickFxColorSlider::-moz-range-thumb:hover {
 		background: rgba(255, 255, 255, 0.8);
 	}
 
-	#display-setting #colorSlider::-moz-range-thumb:active {
+	#display-setting #colorSlider::-moz-range-thumb:active,
+	#display-setting #clickFxColorSlider::-moz-range-thumb:active {
 		background: rgba(255, 255, 255, 0.6);
 	}
 </style>

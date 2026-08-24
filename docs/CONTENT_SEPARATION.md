@@ -254,10 +254,11 @@ CONTENT_REPO_URL=git@github.com:your-username/Mizuki-Content-Private.git
     ├── navBarConfig.ts      →  navBarConfig          (上游 navBarConfig.ts)
     ├── musicPlayerConfig.ts →  musicPlayerConfig     (上游 musicConfig.ts)
     ├── sakuraConfig.ts      →  sakuraConfig          (上游 effectsConfig.ts)
+    ├── baClickFxConfig.ts   →  baClickFxConfig       (上游 effectsConfig.ts)
     └── ...
 ```
 
-可覆盖的 18 个配置：`announcementConfig`、`commentConfig`、`expressiveCodeConfig`、`footerConfig`、`fullscreenWallpaperConfig`、`licenseConfig`、`markdownConfig`、`musicPlayerConfig`、`navBarConfig`、`permalinkConfig`、`pioConfig`、`profileConfig`、`randomPostsConfig`、`relatedPostsConfig`、`sakuraConfig`、`shareConfig`、`sidebarLayoutConfig`、`siteConfig`。
+可覆盖的 19 个配置：`announcementConfig`、`baClickFxConfig`、`commentConfig`、`expressiveCodeConfig`、`footerConfig`、`fullscreenWallpaperConfig`、`licenseConfig`、`markdownConfig`、`musicPlayerConfig`、`navBarConfig`、`permalinkConfig`、`pioConfig`、`profileConfig`、`randomPostsConfig`、`relatedPostsConfig`、`sakuraConfig`、`shareConfig`、`sidebarLayoutConfig`、`siteConfig`。
 
 文件名不在名单内会在构建期报错并列出合法名单，不会静默失效。
 

@@ -231,6 +231,8 @@ export const en: Translation = {
 	[Key.bannerTitle]: "Banner Title",
 	[Key.bannerCarousel]: "Banner Carousel",
 	[Key.sakuraEffect]: "Sakura Effect",
+	[Key.clickEffect]: "BA Click FX",
+	[Key.clickEffectColor]: "FX Color",
 	[Key.effectsSettings]: "Effects",
 	[Key.postListLayout]: "Post Layout",
 	[Key.postListLayoutList]: "List",

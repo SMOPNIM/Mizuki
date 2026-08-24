@@ -313,6 +313,8 @@ enum I18nKey {
 	bannerTitle = "bannerTitle",
 	bannerCarousel = "bannerCarousel",
 	sakuraEffect = "sakuraEffect",
+	clickEffect = "clickEffect",
+	clickEffectColor = "clickEffectColor",
 	effectsSettings = "effectsSettings",
 	postListLayout = "postListLayout",
 	postListLayoutList = "postListLayoutList",
