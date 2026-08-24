@@ -97,7 +97,7 @@ const isSakuraSwitchable =
 	sakuraConfig.enable && (sakuraConfig.switchable ?? false);
 
 const isBaClickFxSwitchable =
-	baClickFxConfig.enable && (baClickFxConfig.switchable ?? false);
+	baClickFxConfig.enable && (baClickFxConfig.switchable ?? true);
 
 const isUltrawidePostLayoutSwitchable =
 	siteConfig.ultrawidePostLayout?.allowSwitch ?? true;
@@ -545,7 +545,7 @@ $effect(() => {
 						type="range"
 						min="0"
 						max="360"
-						step="5"
+						step="1"
 						value={clickFxHue}
 						oninput={(e) => applyClickFxColor(Number((e.currentTarget as HTMLInputElement).value))}
 						class="slider w-full"

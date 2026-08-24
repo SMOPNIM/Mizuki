@@ -423,7 +423,8 @@ export function setSakuraEnabled(enabled: boolean): void {
 
 // ─── BA Click FX ─────────────────────────────────────────────
 
-const DEFAULT_BA_CLICK_FX_COLOR = "#4ca7ff";
+// 与 baClickFxConfig.themeColor 保持一致（滑块可精确表示的值）
+const DEFAULT_BA_CLICK_FX_COLOR = "#47a6ff";
 
 function isValidHexColor(value: string): boolean {
 	return /^#[0-9a-fA-F]{6}$/.test(value);
@@ -468,7 +469,7 @@ export function setBaClickFxColor(color: string): void {
 	);
 }
 
-/** HSL 转 six-digit hex，用于特效颜色滑块。 */
+/** HSL 转 six-digit hex，用于特效颜色滑块。滑块仅调色相，s/l 固定为 100%/64%。 */
 export function hslToHex(h: number, s = 100, l = 64): string {
 	const sn = s / 100;
 	const ln = l / 100;
