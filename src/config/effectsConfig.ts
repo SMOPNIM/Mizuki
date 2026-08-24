@@ -32,7 +32,9 @@ export const sakuraConfig: SakuraConfig = {
 export const baClickFxConfig: BAClickFxConfig = {
 	enable: true,
 	switchable: true,
-	themeColor: "#4ca7ff", // 默认游戏蓝
+	// 默认游戏蓝。取 hsl(209,100%,64%) 的精确十六进制值，
+	// 使面板颜色滑块（固定 s=100%/l=64%）能无损往返表示。
+	themeColor: "#47a6ff",
 	scale: 1, // 相对游戏原始尺寸的倍率
 	opacity: 1,
 	clickEnabled: true,

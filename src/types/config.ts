@@ -462,7 +462,7 @@ export interface SakuraConfig {
 export interface BAClickFxConfig {
 	enable: boolean; // 是否启用蔚蓝档案风格点击特效与光标拖尾
 	switchable?: boolean; // 是否允许访客在设置面板中切换
-	themeColor: string; // 特效主题色（六位十六进制），默认游戏蓝 #4ca7ff
+	themeColor: string; // 特效主题色（六位十六进制），默认游戏蓝 #47a6ff（需为 hsl(h,100%,64%) 形式才能被颜色滑块无损表示）
 	scale: number; // 相对 Unity 原始尺寸的倍率
 	opacity: number; // 整体不透明度 0~1
 	clickEnabled: boolean; // 是否启用点击特效
