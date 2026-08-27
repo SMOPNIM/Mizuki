@@ -68,18 +68,14 @@ export function remarkFixGithubAdmonitions() {
 				return;
 			}
 
-			const textNodeChildren =
-				firstParagraphChild.value.split("\n").length > 1
-					? [
-							{
-								type: "text",
-								value: firstParagraphChild.value
-									.split("\n")
-									.slice(1)
-									.join("\n"),
-							},
-						]
-					: [];
+		const lines = firstParagraphChild.value.split("\n").slice(1);
+		const textNodeChildren = [];
+		for (let i = 0; i < lines.length; i++) {
+			if (i > 0) {
+				textNodeChildren.push({ type: "break" });
+			}
+			textNodeChildren.push({ type: "text", value: lines[i] });
+		}
 
 			const paragraphChildren = [
 				...textNodeChildren,
