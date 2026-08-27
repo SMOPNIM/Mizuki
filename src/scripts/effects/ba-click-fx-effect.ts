@@ -2,7 +2,7 @@
  * BA Click FX 特效模块
  * 管理蔚蓝档案风格点击特效与光标拖尾的初始化
  *
- * 特效库通过动态导入按需加载；实例的全屏覆盖层挂在 body 上，
+ * 实例的全屏覆盖层挂在 body 上，
  * 可在 Swup 页面切换间持续存在，无需随导航重建。
  */
 
@@ -11,12 +11,10 @@ import {
 	getStoredBaClickFxColor,
 	getStoredBaClickFxEnabled,
 } from "../../utils/setting-utils";
-
-type BAClickFxModule = typeof import("ba-click-fx");
+import { BAClickFX } from "ba-click-fx";
 
 export class BAClickFxEffectHandler {
 	private instance: import("ba-click-fx").BAClickFX | null = null;
-	private module: BAClickFxModule | null = null;
 	private config: BAClickFxConfig | null = null;
 	/** 记录期望状态，处理异步加载期间的快速开关切换 */
 	private desiredEnabled = false;
@@ -53,7 +51,7 @@ export class BAClickFxEffectHandler {
 	/**
 	 * 同步特效实例与启用状态
 	 */
-	private async sync(enabled: boolean): Promise<void> {
+	private sync(enabled: boolean): void {
 		this.desiredEnabled = enabled;
 
 		if (!enabled) {
@@ -64,22 +62,8 @@ export class BAClickFxEffectHandler {
 			return;
 		}
 
-		if (!this.module) {
-			try {
-				this.module = await import("ba-click-fx");
-			} catch (error) {
-				console.error("BAClickFX: 特效库加载失败", error);
-				return;
-			}
-		}
-
-		// 加载期间状态可能已变化，重新确认
-		if (!this.desiredEnabled || this.instance) {
-			return;
-		}
-
 		try {
-			this.instance = new this.module.BAClickFX({
+			this.instance = new BAClickFX({
 				scale: this.config.scale ?? 1,
 				opacity: this.config.opacity ?? 1,
 				themeColor: getStoredBaClickFxColor(),
