@@ -230,13 +230,23 @@ html {
   /* 卡片边框和微阴影效果 */
   .enable-card-border .card-base {
     @apply transition-all duration-300 border border-(--line-divider) shadow-xs;
+    border-color: transparent;
+    animation: border-fade-in 0.3s ease forwards;
   }
   .enable-card-border .card-base-transparent {
     @apply transition-all duration-300 border border-(--line-divider) shadow-xs;
+    border-color: transparent;
+    animation: border-fade-in 0.3s ease forwards;
   }
   .enable-card-border #navbar > div:not(.absolute) {
     @apply transition-all duration-300 border shadow-xs;
-    border-color: var(--line-divider) !important;
+    border-color: transparent;
+    animation: border-fade-in 0.3s ease forwards;
+  }
+
+  @keyframes border-fade-in {
+    from { border-color: transparent; }
+    to { border-color: var(--line-divider); }
   }
 
   /* 全屏壁纸模式下的半透明效果 - 使用!important确保优先级 */
