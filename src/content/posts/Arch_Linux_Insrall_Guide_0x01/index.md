@@ -1,9 +1,9 @@
 ---
 title: ArchLinux安装指南0x01篇
-date: 2026-08-26
+date: 2026-08-25
 description: Arch安装教程——从零开始安装Arch Linux
-published: 2026-08-26
-pubDate: 2026-08-26
+published: 2026-08-28
+pubDate: 2026-08-28
 draft: true
 author: SMOPNIM
 ---
@@ -777,7 +777,7 @@ tmpfs           389M  8.0K  389M   1% /run/user/0
 # swapon /mnt/swap/swapfile
 ```
 
-##### Ext4+swap分区
+###### Ext4+swap分区
 
 > [!NOTE]
 > 下次再说吧~
@@ -1576,6 +1576,22 @@ error: command failed to execute correctly
 [root@archiso /]#
 ```
 
+##### 设置 `hostname`
+
+这是在设置电脑的**名字**，打开 `/etc/hostname`，填入你取的名字。
+
+```bash
+# vim /etc/hostname
+```
+
+> [!NOTE]
+> 你可在这里填入:
+> - 小写字母 (`a-z`)
+> - 大写字母 (`A-Z`)
+> - 数字 (`0-9`)
+> - 连字符 (`-`)
+> - 点号 (`.`)
+
 ##### 设置世界和时区
 
 ```bash
@@ -1699,3 +1715,8 @@ error: command failed to execute correctly
 ```bash
 # reboot
 ```
+
+## 尾记
+> [!NOTE]
+> 还没想好~
+> ヾ(≧▽≦*)o
