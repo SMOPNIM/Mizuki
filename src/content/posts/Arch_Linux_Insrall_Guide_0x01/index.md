@@ -2,7 +2,7 @@
 title: ArchLinux安装指南0x01篇
 date: 2026-08-25
 description: Arch安装教程——从零开始安装Arch Linux
-published: 2026-08-28
+published: 2026-08-28T21:00:00+08:00
 pubDate: 2026-08-28
 draft: true
 author: SMOPNIM
@@ -24,8 +24,9 @@ author: SMOPNIM
 > 遇到任何问题可以去[Arch Wiki](https://wiki.archlinuxcn.org/wiki/)上寻找答案。
 
 ### 我需要什么？
- - 一台 `x86_64` 的电脑。
- - 一块至少**8G**的U盘。
+
+- 一台 `x86_64` 的电脑。
+- 一块至少**8G**的U盘。
 
 ### 什么是Arch_Linux
 
@@ -38,39 +39,41 @@ author: SMOPNIM
 
 打开官方镜像链接 [Arch Linux Downloads](https://archlinux.org/download/)，
 在其中的 `BitTorrent Download (recommended)` 下选择一个合适你的链接，可以使用 [Free Download Manager](https://www.freedownloadmanager.org/zh/) 或迅雷下载磁力链接或BT种子。
-  
+
 完成后你应该会得到一个形如 `archlinux-2026.08.01-x86_64.iso` 的ISO文件。
-  
+
 有条件的可以使用如 [7-ZIP](https://7-zip.org/download.html) 或 `sha256sum` 命令来校验。
 
 ### 制作安装介质
+
 我们考虑使用 [Ventoy](https://www.ventoy.net/cn/download.html) 制作安装介质。
-  
+
 打开上方链接按自己的系统类型下载。
 
 > [!NOTE]
 > 因为 `Ventoy` 安装包托管在 Github 上，中国大陆用户可能无法访问，你可以使用网页下方的其他链接，如 [蓝奏云](https://www.lanzoui.com/b01bd54gb)
 
 你应该得到一个形如 `ventoy-1.1.17-windows.zip` 的压缩包，解压它。
-  
+
 找到其中的 `Ventoy2Disk.exe` 文件运行它。
-  
+
 > [!CAUTION]
 > 此操作会清除U盘中的**一切数据**。\
 > 数据无价请做好备份！
 
 把你的U盘插进去。在上方选择框中选择你的U盘。然后按左下角的 `安装` 键。二次确认后开始安装。
-  
+
 安装完成后你的U盘的卷标应变为 `Ventoy`。把你先前下载的 `Arch Linux` 安装镜像复制到U盘中。
-  
+
 至此制作安装介质**完成**！
 
 ### 启动到LiveCD
+
 > [!WARNING]
 > Arch Linux 安装映像不支持 UEFI 安全启动（Secure Boot）功能。如果要引导安装介质，需要禁用安全启动。
- 
- 1. 把U盘插入待装电脑。开机，在主板自检时快速按下 `快捷启动键`（参考下表），进入快捷启动界面。
- 
+
+1.  把U盘插入待装电脑。开机，在主板自检时快速按下 `快捷启动键`（参考下表），进入快捷启动界面。
+
  <table border="1" cellpadding="5" style="border-collapse: collapse; text-align: center;">
     <thead>
         <tr>
@@ -202,7 +205,6 @@ author: SMOPNIM
 > 使用 `Tab` 键补全命令和路径。
 > 使用 `clear` 命令清屏。
 
-
 > [!TIP]
 > 若有条件，我们建议直接使用以太网线连接电脑。
 
@@ -211,9 +213,9 @@ author: SMOPNIM
 ##### 有线网络
 
 若你直接将电脑用一根以太网线连到路由器或光猫上，那么你的网络大概率已经连接成功了。
-  
+
 使用如下命令测试
-  
+
 ```bash
 $ ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -238,7 +240,7 @@ $ ip a
 ```
 
 若除了 `127.0.0.1` 以外还有 ip 地址则连接成功。
-  
+
 现在我们测试互联网连接，使用以下命令，若 ping 通则按 `Ctrl+C` 键打断。
 
 > [!NOTE]
@@ -268,7 +270,7 @@ rtt min/avg/max/mdev = 11.454/13.512/16.806/2.020 ms
 ```
 
 这时提示符会变成 `[iwd]#`。
-  
+
 使用 `help` 命令
 
 ```bash
@@ -398,7 +400,7 @@ Miscellaneous:
 ```
 
 若输出如上图，那么设备名为：`wlan0`，若 `Powered` 列是 `off`。
-  
+
 那么使用以下命令打开设备：
 
 ```bash
@@ -442,11 +444,11 @@ Miscellaneous:
 ```
 
 系统会提示 `Passphrase:`，输入密码后回车。
-  
+
 连接成功后，可以输入 `exit` 退出交互界面。
 
 使用如下命令测试
-  
+
 ```bash
 $ ip a
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
@@ -471,7 +473,7 @@ $ ip a
 ```
 
 若除了 `127.0.0.1` 以外还有 ip 地址则连接成功。
-  
+
 现在我们测试互联网连接，使用以下命令，若 ping 通则按 `Ctrl+C` 键打断。
 
 > [!NOTE]
@@ -492,12 +494,10 @@ rtt min/avg/max/mdev = 11.454/13.512/16.806/2.020 ms
 
 像这样代表你与 [B站](https://www.bilibili.com) 的网络是通畅的（当然你也可以把上面的 `www.bilibili.com` 换成别的网址（注意不要加 `http://` 或 `https://`），如 `www.baidu.com`）。
 
-
 至此，网络连接**完成**！
 
 > [!NOTE]
 > 你可以把另一台电脑连接到同一路由器/光猫下，记下当前电脑（待装电脑）的 ip 地址，在另一台电脑上使用 `ssh root@ip`（将 "ip" 换为你的 ip），详见：[OpenSSH - Arch Wiki](https://wiki.archlinuxcn.org/wiki/OpenSSH)
-
 
 #### 更换软件源
 
@@ -531,17 +531,20 @@ Server = http://mirror.lzu.edu.cn/archlinux/$repo/os/$arch # 兰州大学开源�
 
 > [!NOTE]
 > 请确定你的电脑使用(U)EFI启动，使用以下命令：`cat /sys/firmware/efi/fw_platform_size`。
+>
 > - 如果命令结果为 `64`，则系统是以 UEFI 模式引导且使用 64 位 x64 UEFI。
 > - 如果命令结果为 32，则系统是以 UEFI 模式引导且使用 32 位 IA32 UEFI。
 > - 如果命令结果为 `No such file or directory`，则系统可能是以 BIOS 模式。（等我以后的教程）
 
 ##### Linux分区介绍：
- - `/` 根目录；
- - `/boot` 引导分区；
- - `swap` 分区，当然你也可以使用 Swap 文件；
- - `/home` 可不单独建立分区，合并在 `/`。
+
+- `/` 根目录；
+- `/boot` 引导分区；
+- `swap` 分区，当然你也可以使用 Swap 文件；
+- `/home` 可不单独建立分区，合并在 `/`。
 
 ##### 分区方式选择
+
 1. Btrfs
 2. Ext4
 
@@ -696,7 +699,6 @@ Devices:
 > [!NOTE]
 > 可以使用 `df -h` 命令复查挂载。
 
-
 创建子卷
 
 ```bash
@@ -721,15 +723,15 @@ Devices:
 ```
 
 > [!NOTE]
+>
 > - `-t` 指定分区类型
 > - `-o` 指定参数：
-> `compress=zstd` 代表启用透明压缩
-> `subvol=/@` 代表挂载子卷 "@"，`/` 是路径分隔符
+>   `compress=zstd` 代表启用透明压缩
+>   `subvol=/@` 代表挂载子卷 "@"，`/` 是路径分隔符
 > - `--mkdir` 代表如果目标挂载点不存在，则自动创建它。
 
 > [!NOTE]
 > 先挂载 `@` 子卷也就是根目录。
-
 
 使用 `df -h` 命令复查挂载。
 
@@ -766,6 +768,7 @@ tmpfs           389M  8.0K  389M   1% /run/user/0
 ```
 
 > [!NOTE]
+>
 > - `btrfs`：调用 Btrfs 文件系统的管理工具集。
 > - `filesystem`：指明要对文件系统本身执行操作。
 > - `mkswapfile`：在 Btrfs 上创建交换文件的专用命令，自动处理 NOCOW 与预分配。
@@ -791,10 +794,11 @@ tmpfs           389M  8.0K  389M   1% /run/user/0
 ```
 
 > [!NOTE]
+>
 > - `pacman` 是 `Arch Linux` 的默认包管理器。
 > - `-Sy` 是 `pacman` 的两个选项组合：
->      - `-S` (--sync)：表示要从远程仓库同步或安装软件包。
->      - `-y` (--refresh)：表示刷新本地软件包数据库，使其与远程仓库信息同步。
+>   - `-S` (--sync)：表示要从远程仓库同步或安装软件包。
+>   - `-y` (--refresh)：表示刷新本地软件包数据库，使其与远程仓库信息同步。
 > - `archlinux-keyring`：包含官方开发者 PGP 公钥的软件包，用于验证软件包签名；安装系统时会将其复制到新系统中，要保证其最新。
 
 好了，正式安装：
@@ -1546,6 +1550,7 @@ error: command failed to execute correctly
 ```
 
 > [!NOTE]
+>
 > - **`pacstrap -K /mnt`**：将基础系统安装到 `/mnt` 目录，`-K` 参数会在新系统内初始化一个全新的、干净的密钥环，而非从 Live 环境复制。
 > - **`base`**：Arch Linux 的核心基础软件包组，包含启动和运行系统的最小集合。
 > - **`base-devel`**：开发工具包组，包含 `gcc`、`make` 等编译器和构建工具。
@@ -1586,6 +1591,7 @@ error: command failed to execute correctly
 
 > [!NOTE]
 > 你可在这里填入:
+>
 > - 小写字母 (`a-z`)
 > - 大写字母 (`A-Z`)
 > - 数字 (`0-9`)
@@ -1658,6 +1664,7 @@ error: command failed to execute correctly
 ```
 
 > [!NOTE]
+>
 > - `grub-install`：将 GRUB 引导程序安装到指定位置。
 > - `--target=x86_64-efi`：指定安装 UEFI 版本的 GRUB。
 > - `--efi-directory=/boot`：指定 EFI 分区挂载点为 `/boot`。
@@ -1671,19 +1678,20 @@ error: command failed to execute correctly
 ```
 
 进行如下修改：
- - 去掉 `GRUB_CMDLINE_LINUX_DEFAULT` 一行中最后的 `quiet` 参数
- - 把 `loglevel` 的数值从 `3` 改成 `5`。
- - 加入 `nowatchdog` 参数。
+
+- 去掉 `GRUB_CMDLINE_LINUX_DEFAULT` 一行中最后的 `quiet` 参数
+- 把 `loglevel` 的数值从 `3` 改成 `5`。
+- 加入 `nowatchdog` 参数。
 
 > [!TIP]
 > 要禁用英特尔的看门狗硬件，在 `GRUB_CMDLINE_LINUX_DEFAULT` 后添加：`modprobe.blacklist=iTCO_wdt`。
-
 
 > [!NOTE]
 > 若为双系统用户：
 > 请将 `GRUB_DISABLE_OS_PROBER` 设为 `false`。
 
 > [!NOTE]
+>
 > - 去掉 `quiet` 参数：关闭启动时的日志静默，显示更多内核启动信息。
 > - 将 `loglevel` 从 `3` 改为 `5`：提高内核日志输出级别，显示 `KERN_NOTICE` 及以上等级的信息。
 > - 加入 `nowatchdog` 参数：禁用看门狗（watchdog）定时器，避免因超时导致意外重启。
@@ -1717,6 +1725,7 @@ error: command failed to execute correctly
 ```
 
 ## 尾记
+
 > [!NOTE]
 > 还没想好~
-> ヾ(≧▽≦*)o
+> ヾ(≧▽≦\*)o
