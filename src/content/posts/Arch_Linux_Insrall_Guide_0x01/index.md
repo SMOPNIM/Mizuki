@@ -179,11 +179,11 @@ author: SMOPNIM
 
 2. 选择你的U盘，回车进入 Ventoy 界面（如下图）。
 
-![Ventoy示例图](.\ventoy_screen.png)
+![Ventoy示例图](./ventoy_screen.png)
 
 3. 选择其中的 `archlinux-2026.08.01-x86_64.iso`（具体名字参考你的 ISO 镜像文件）文件。两次回车进入 LiveCD。
 
-![LiveCD启动示意图](.\livecd_booting_screen.png)
+![LiveCD启动示意图](./livecd_booting_screen.png)
 
 4.按回车或等待 15 秒，等一段跑码，就会进入到一个类似下面的界面：
 
@@ -584,31 +584,31 @@ NVME:
 
 若为新磁盘，会提示选择分区表，建议选择 `gpt` 分区表。
 
-![cfdisk示意图1](.\cfdisk_screen_1.png)
+![cfdisk示意图1](./cfdisk_screen_1.png)
 
 进入 `cfdisk` 分区工具之后，你会看到如图所示的界面。通过方向键 ↑ 和 ↓ 可以在要操作磁盘分区或空余空间中移动；通过方向键 ← 和 → 在对当前高亮的磁盘分区或空余空间要执行的操作中移动。
 
-![cfdisk示意图2](.\cfdisk_screen_2.png)
+![cfdisk示意图2](./cfdisk_screen_2.png)
 
 1. 首先创建 `EFI` 分区。（建议 `1GiB`，最小 `400MiB`）
 
 方向键 ↑ 和 ↓ 选择 `Free space`，方向键 ← 和 → 选择 `New`，回车，输入分区大小，方向键 ← 和 → 选择 `Type` 回车，选择。
 
-![cfdisk示意图3](.\cfdisk_screen_3.png)
-![cfdisk示意图4](.\cfdisk_screen_4.png)
+![cfdisk示意图3](./cfdisk_screen_3.png)
+![cfdisk示意图4](./cfdisk_screen_4.png)
 
 2. 创建主分区
 
 与 1. 相同但大小至少 23–32 GiB，`Type` 中选择 `Linux filesystem`（默认选项）。
 
-![cfdisk示意图5](.\cfdisk_screen_5.png)
+![cfdisk示意图5](./cfdisk_screen_5.png)
 
 3. 写入分区表，选择 `Write` 选项，回车，输入 `yes`，回车。
 
 > [!WARNING]
 > 请确认你正确更改了分区表，否则可能**丢失数据**！
 
-![cfdisk示意图6](.\cfdisk_screen_6.png)
+![cfdisk示意图6](./cfdisk_screen_6.png)
 
 4. 退出 `cfdisk`
 
