@@ -6,5 +6,5 @@
 
 那么，我们正文见！
 
-本博客仓库（位于my-config分支）：
+本博客仓库（位于 `my-blog` 分支）：
 ::github{repo="SMOPNIM/Mizuki"}
