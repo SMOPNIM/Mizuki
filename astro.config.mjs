@@ -62,12 +62,12 @@ export default defineConfig({
 					options: {
 						variants: [
 							{
-								src: ["./src/assets/fonts/JetBrainsMono-Regular.ttf"],
+								src: ["./src/assets/fonts/JetBrainsMono-Regular.woff2"],
 								weight: "400",
 								style: "normal",
 							},
 							{
-								src: ["./src/assets/fonts/JetBrainsMono-Bold.ttf"],
+								src: ["./src/assets/fonts/JetBrainsMono-Bold.woff2"],
 								weight: "700",
 								style: "normal",
 							},
@@ -77,18 +77,18 @@ export default defineConfig({
 					optimizedFallbacks: false,
 				},
 				{
-					name: "LXGW WenKai",
+					name: "Source Han Sans SC",
 					cssVariable: "--font-body",
 					provider: fontProviders.local(),
 					options: {
 						variants: [
 							{
-								src: ["./src/assets/fonts/LXGWWenKai-Regular.ttf"],
+								src: ["./src/assets/fonts/SourceHanSansSC-Regular.woff2"],
 								weight: "400",
 								style: "normal",
 							},
 							{
-								src: ["./src/assets/fonts/LXGWWenKai-Medium.ttf"],
+								src: ["./src/assets/fonts/SourceHanSansSC-Medium.woff2"],
 								weight: "500",
 								style: "normal",
 							},
@@ -98,19 +98,19 @@ export default defineConfig({
 					optimizedFallbacks: false,
 				},
 				{
-					name: "LXGW WenKai",
+					name: "Source Han Sans SC",
 					cssVariable: "--font-cjk",
 					provider: fontProviders.local(),
 					options: {
 						variants: [
 							{
-								src: ["./src/assets/fonts/LXGWWenKai-Regular.ttf"],
+								src: ["./src/assets/fonts/SourceHanSansSC-Regular.woff2"],
 								weight: "400",
 								style: "normal",
 							},
 							{
-								src: ["./src/assets/fonts/LXGWWenKai-Medium.ttf"],
-								weight: "500",
+								src: ["./src/assets/fonts/SourceHanSansSC-Bold.woff2"],
+								weight: "700",
 								style: "normal",
 							},
 						],

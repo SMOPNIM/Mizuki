@@ -8,6 +8,9 @@ const projectRoot = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const fonts = [
 	["ZenMaruGothic-Medium.ttf", "ZenMaruGothic-Medium.woff2"],
 	["loli.ttf", "loli.woff2"],
+	["SourceHanSansSC-Regular.ttf", "SourceHanSansSC-Regular.woff2"],
+	["SourceHanSansSC-Medium.ttf", "SourceHanSansSC-Medium.woff2"],
+	["SourceHanSansSC-Bold.ttf", "SourceHanSansSC-Bold.woff2"],
 ];
 
 function exactArrayBuffer(buffer) {
