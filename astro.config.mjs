@@ -58,43 +58,63 @@ export default defineConfig({
 				{
 					name: "JetBrains Mono",
 					cssVariable: "--font-jetbrains-mono",
-					provider: fontProviders.fontsource(),
-					styles: ["normal", "italic"],
+					provider: fontProviders.local(),
+					options: {
+						variants: [
+							{
+								src: ["./src/assets/fonts/JetBrainsMono-Regular.ttf"],
+								weight: "400",
+								style: "normal",
+							},
+							{
+								src: ["./src/assets/fonts/JetBrainsMono-Bold.ttf"],
+								weight: "700",
+								style: "normal",
+							},
+						],
+					},
+					fallbacks: [],
+					optimizedFallbacks: false,
 				},
 				{
-					name: "ZenMaruGothic-Medium",
+					name: "LXGW WenKai",
 					cssVariable: "--font-body",
 					provider: fontProviders.local(),
 					options: {
 						variants: [
 							{
-								src: ["./src/assets/fonts/ZenMaruGothic-Medium.woff2"],
+								src: ["./src/assets/fonts/LXGWWenKai-Regular.ttf"],
+								weight: "400",
+								style: "normal",
+							},
+							{
+								src: ["./src/assets/fonts/LXGWWenKai-Medium.ttf"],
 								weight: "500",
 								style: "normal",
 							},
 						],
 					},
-					// These variables are composed into --font-sans below. Keep their
-					// fallback lists empty; otherwise a system fallback after this Latin
-					// font prevents the following CJK font from ever being considered.
 					fallbacks: [],
 					optimizedFallbacks: false,
 				},
 				{
-					name: "Loli",
+					name: "LXGW WenKai",
 					cssVariable: "--font-cjk",
 					provider: fontProviders.local(),
 					options: {
 						variants: [
 							{
-								src: ["./src/assets/fonts/loli.woff2"],
+								src: ["./src/assets/fonts/LXGWWenKai-Regular.ttf"],
 								weight: "400",
+								style: "normal",
+							},
+							{
+								src: ["./src/assets/fonts/LXGWWenKai-Medium.ttf"],
+								weight: "500",
 								style: "normal",
 							},
 						],
 					},
-					// The final system fallback belongs to --font-sans, not this partial
-					// CJK font stack.
 					fallbacks: [],
 					optimizedFallbacks: false,
 				},
