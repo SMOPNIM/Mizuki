@@ -19,20 +19,41 @@ category: Guide
 
 这是我的博客的第一篇教程，我一直在想该写什么好。最后还是决定写一写Arch的安装，用来熟悉一些md语法。如果有任何错误请谅解。
 
+## 目录
+
+- [我需要什么？](#我需要什么)
+- [什么是 Arch Linux](#什么是-arch-linux)
+- [安装前准备](#安装前准备)
+  - [获取安装镜像](#获取安装镜像)
+  - [制作安装介质](#制作安装介质)
+  - [启动到 LiveCD](#启动到-livecd)
+- [正式安装](#正式安装)
+  - [网络连接](#网络连接)
+  - [更换软件源](#更换软件源)
+  - [分区与格式化](#分区与格式化)
+  - [安装必要软件包](#安装必要软件包)
+  - [生成 fstab](#生成-fstab)
+  - [新系统设置](#新系统设置)
+  - [启动 NetworkManager 服务](#启动-networkmanager-服务)
+  - [安装引导程序](#安装引导程序)
+  - [完成安装](#完成安装)
+  - [最后一步——重启](#最后一步重启)
+- [尾记](#尾记)
+
 ## 正文
 
 > [!TIP]
-> 我们不建议初学者使用Arch Linux作为使用的第一个发行版。
+> 我们不建议初学者使用 Arch Linux 作为使用的第一个发行版。
 
 > [!TIP]
-> 遇到任何问题可以去[Arch Wiki](https://wiki.archlinuxcn.org/wiki/)上寻找答案。
+> 遇到任何问题可以去 [Arch Wiki](https://wiki.archlinuxcn.org/wiki/) 上寻找答案。
 
 ### 我需要什么？
 
 - 一台 `x86_64` 的电脑。
-- 一块至少**8G**的U盘。
+- 一块至少 **8G** 的U盘。
 
-### 什么是Arch_Linux
+### 什么是 Arch Linux
 
 > Arch Linux 作为一种通用 Linux 发行版，它的初始安装仅提供命令行环境。由于 Arch 默认提供最小化安装，用户不需要删除大量不需要的软件包，而是可以从官方软件仓库成千上万的高质量软件包中进行选择，用于搭建自己的系统。目前仅支持 x86-64 架构。( 对 i686 架构的支持已经结束）\
 > ——摘自[Arch Wiki](https://wiki.archlinuxcn.org/wiki/Arch_Linux)
@@ -48,7 +69,7 @@ category: Guide
 
 有条件的可以使用如 [7-ZIP](https://7-zip.org/download.html) 或 `sha256sum` 命令来校验。
 
-### 制作安装介质
+#### 制作安装介质
 
 我们考虑使用 [Ventoy](https://www.ventoy.net/cn/download.html) 制作安装介质。
 
@@ -71,7 +92,7 @@ category: Guide
 
 至此制作安装介质**完成**！
 
-### 启动到LiveCD
+#### 启动到 LiveCD
 
 > [!WARNING]
 > Arch Linux 安装映像不支持 UEFI 安全启动（Secure Boot）功能。如果要引导安装介质，需要禁用安全启动。
@@ -206,7 +227,7 @@ category: Guide
 > [!NOTE]
 > 你可以通过命令前的 `#` 或 `$` 符号判断当前命令是用 `root` 用户执行还是普通用户。
 
-#### 网络链接
+#### 网络连接
 
 > [!NOTE]
 > 使用 `Tab` 键补全命令和路径。
@@ -550,7 +571,7 @@ Server = http://mirror.lzu.edu.cn/archlinux/$repo/os/$arch # 兰州大学开源�
 > - 如果命令结果为 32，则系统是以 UEFI 模式引导且使用 32 位 IA32 UEFI。
 > - 如果命令结果为 `No such file or directory`，则系统可能是以 BIOS 模式。（等我以后的教程）
 
-##### Linux分区介绍：
+##### Linux 分区介绍
 
 - `/` 根目录；
 - `/boot` 引导分区；
@@ -585,7 +606,7 @@ sr0    11:0    1    1.5G  1 rom  /run/archiso/bootmnt
 2. 使用 `cfdisk` 命令对磁盘分区。
 
 > [!NOTE]
-> 在`cfdisk`中只要你没有将更改写入磁盘，你的更改就只存在于内存中。
+> 在 `cfdisk` 中只要你没有将更改写入磁盘，你的更改就只存在于内存中。
 
 SATA:
 
@@ -1704,7 +1725,7 @@ Creating user 'polkitd' (User for polkitd) with UID 102 and GID 102.
 > - **`-U`**：选项参数，告诉 `genfstab` 使用分区的 UUID（通用唯一标识符） 来标识设备。更加稳定可靠。
 > - **`/mnt`**：路径参数，指定 `genfstab` 从哪个挂载点根目录开始扫描。
 > - **`>`**：输出重定向符，将 `genfstab` 命令本应在终端显示的内容（标准输出）写入到后面的文件中。
-> - **`/mnt/etc/fsatb`**：目标文件路径，即在新系统根目录下的 `/etc/fstab` 配置文件。
+> - **`/mnt/etc/fstab`**：目标文件路径，即在新系统根目录下的 `/etc/fstab` 配置文件。
 
 #### 新系统设置
 
@@ -1781,7 +1802,7 @@ Creating user 'polkitd' (User for polkitd) with UID 102 and GID 102.
 > [!NOTE]
 > 输入密码**不会**显示，这是 Linux 的保护机制，以后使用 `sudo`、`su` 和 `ssh` 也不会显示密码。
 
-#### 启动 `NetWorkManager` 服务
+#### 启动 NetworkManager 服务
 
 ```bash
 # systemctl enable NetworkManager
@@ -1789,7 +1810,7 @@ Creating user 'polkitd' (User for polkitd) with UID 102 and GID 102.
 
 > [!NOTE]
 > **`NetworkManager`** 是 Arch Linux 中功能全面的网络管理服务，支持有线、Wi-Fi、移动宽带和 VPN 等多种连接方式，并提供 `nmcli` 命令行和 `nmtui` 文本界面等管理工具。启用后系统重启时会自动加载网络管理功能。
-> 详见：[NatWorkManager - Arch Wiki](https://wiki.archlinuxcn.org/wiki/NetworkManager)
+> 详见：[NetworkManager - Arch Wiki](https://wiki.archlinuxcn.org/wiki/NetworkManager)
 
 > [!NOTE]
 > `systemd` 是 `Arch Linux` 的默认系统和服务管理器，作为 PID 1 负责管理系统启动后的所有进程。`systemctl` 是与 `systemd` 交互的命令行工具，用于控制服务的启动、停止、状态查询及开机自启。
